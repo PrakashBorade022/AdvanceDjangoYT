@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>All Blogs</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    body{
+      width:90%;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+ 
+ 
+   {% for i in page_obj%}
+  <div class="card col-lg-8 border border-success p-4 m-4 mx-auto">
+  <h5 class="card-header">programming blog</h5>
+  <div class="card-body">
+    
+    <p class="card-text">{{i.blogTitle}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+ {% endfor%}
+ <br>
+
+ <!--
+  {% if  page_obj.has_previous%}
+<a href="?page={{page_obj.previous_page_number}}">Previous</a>
+{% endif %}
+{% for i in page_obj.paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+ 
+{% if  page_obj.has_next%}
+<a href="?page={{page_obj.next_page_number}}">NEXT</a>
+{% endif %}
+
+-->
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item ">
+       {% if  page_obj.has_previous%}
+      <a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a>
+      {% endif %}
+    </li>
+{% for i in page_obj.paginator.page_range %}
+   
+        <li><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+      
+    {% endfor %}
+ 
+    {% if  page_obj.has_next%}
+    <li class="page-item">
+      <a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+</body>
+
+</html> 

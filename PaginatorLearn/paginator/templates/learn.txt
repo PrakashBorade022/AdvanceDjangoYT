@@ -1,0 +1,13 @@
+{# <p>Total Objects {{count}}</p>
+	<p>Number of pages per page {{num_pages}}</p>
+	<p>Page  {{ pagerange}}</p> #}
+	{# {{p.count}} # this also works #}
+	count = p.count
+	numpages =p.num_pages
+	pagerange = p.
+	
+	aDict = {
+	'count':count,'num_pages':numpages,
+	'pagerange':pagerange,'p':p,
+	'page_obj':page_obj
+	}
